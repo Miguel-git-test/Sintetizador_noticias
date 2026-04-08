@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Synth | Sintetizador de Noticias IA</title>
+    <meta name="description" content="Sintetiza noticias al instante desde capturas de pantalla, texto o URLs. IA local 100% gratuita y privada.">
+    
+    <!-- PWA -->
+    <link rel="manifest" href="./assets/manifest-Cu7cXJJs.json">
+    <link rel="icon" type="image/svg+xml" href="./assets/favicon-BByXlNix.svg">
+    <meta name="theme-color" content="#09090b">
+    <link rel="apple-touch-icon" href="icon-192.png">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+  <script type="module" crossorigin src="./assets/index-ECxBE7nC.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-BAgad1V9.css">
+</head>
+<body>
+    <div id="app">
+        <header>
+            <div class="logo-container">
+                <div class="logo-icon"></div>
+                <h1>News<span>Synth</span></h1>
+            </div>
+            <p class="subtitle">Sintetiza cualquier noticia al instante. Gratis. Privado. Ilimitado.</p>
+        </header>
+
+        <main>
+            <section id="input-section">
+                <div id="drop-zone" class="glass-card">
+                    <div class="drop-zone-content">
+                        <i data-lucide="plus-circle" class="icon-main"></i>
+                        <h3>Pega o Arrastra aquí</h3>
+                        <p>Captura de pantalla, URL o texto de la noticia</p>
+                        <div class="input-actions">
+                            <button id="paste-btn" class="secondary-btn">
+                                <i data-lucide="clipboard"></i> Pegar Portapapeles
+                            </button>
+                        </div>
+                    </div>
+                    <textarea id="manual-text" placeholder="O escribe el texto directamente aquí..."></textarea>
+                </div>
+            </section>
+
+            <section id="status-section" class="hidden">
+                <div class="status-card glass-card">
+                    <div class="loader"></div>
+                    <p id="status-text">Inicializando IA local...</p>
+                    <div class="progress-bar-container">
+                        <div id="progress-bar" class="progress-bar"></div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="result-section" class="hidden">
+                <div class="result-card glass-card">
+                    <div class="result-header">
+                        <div class="tone-badge" id="tone-badge">Tono: Neutro</div>
+                        <button id="new-btn" class="icon-btn" title="Nueva síntesis">
+                            <i data-lucide="refresh-cw"></i>
+                        </button>
+                    </div>
+
+                    <div class="result-content">
+                        <div class="headline-answer" id="headline-answer">
+                            <i data-lucide="help-circle"></i>
+                            <p id="answer-text">Cargando respuesta al titular...</p>
+                        </div>
+
+                        <div class="summary-container">
+                            <h3>Síntesis Máxima</h3>
+                            <p id="summary-text">Procesando contenido...</p>
+                        </div>
+                    </div>
+
+                    <div class="result-footer">
+                        <button id="copy-summary" class="action-btn">
+                            <i data-lucide="copy"></i> Copiar
+                        </button>
+                        <button id="share-summary" class="action-btn">
+                            <i data-lucide="share-2"></i> Compartir
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>Procesado 100% en tu dispositivo. Sin costes de servidor.</p>
+        </footer>
+    </div>
+
+</body>
+</html>
