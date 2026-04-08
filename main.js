@@ -12,6 +12,9 @@ window.onunhandledrejection = function(event) {
     alert(`PROMISE ERROR: ${event.reason}`);
 };
 
+// Initial version confirm
+alert('NewsSynth v1.0.2-diag cargado');
+
 // Skip local check to download from Hugging Face
 env.allowLocalModels = false;
 
