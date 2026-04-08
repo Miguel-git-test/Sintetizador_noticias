@@ -7,7 +7,7 @@ env.allowLocalModels = false;
 
 // Initialize Lucide icons
 createIcons({
-    icons: { PlusCircle, Clipboard, RefreshCw, Copy, Share2, HelpCircle }
+    icons: { PlusCircle, Clipboard, RefreshCw, Copy, Share2, HelpCircle, Zap: 'zap' }
 });
 
 // App State
@@ -204,6 +204,14 @@ copyBtn.addEventListener('click', () => {
         createIcons({ icons: { Copy } });
     }, 2000);
     createIcons({ icons: { Copy } });
+});
+
+const processManualBtn = document.getElementById('process-manual');
+processManualBtn.addEventListener('click', () => {
+    const text = manualText.value;
+    if (text) {
+        processContent(text);
+    }
 });
 
 // URL & Share Target Handling
