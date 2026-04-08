@@ -81,10 +81,15 @@ function updateProgress(progress) {
 async function processContent(text) {
     if (!text || text.trim().length < 10) return;
     
+    // Show loading UI immediately
+    statusSection.classList.remove('hidden');
+    inputSection.classList.add('hidden');
+    resultSection.classList.add('hidden');
+    statusText.textContent = 'Iniciando proceso...';
+    updateProgress(10);
+
     await initAI(updateProgress);
     
-    statusSection.classList.remove('hidden');
-    resultSection.classList.add('hidden');
     statusText.textContent = 'Sintetizando noticia...';
     updateProgress(100);
 
