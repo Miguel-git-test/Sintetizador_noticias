@@ -2,7 +2,7 @@
   "name": "News Synth | Sintetizador de Noticias",
   "short_name": "NewsSynth",
   "description": "Sintetiza noticias al instante usando IA local.",
-  "start_url": "/",
+  "start_url": "./",
   "display": "standalone",
   "background_color": "#09090b",
   "theme_color": "#10b981",
