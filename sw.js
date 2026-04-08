@@ -1,4 +1,4 @@
-const CACHE_NAME = 'news-synth-v1.0.1';
+const CACHE_NAME = 'news-synth-v1.0.1-diag';
 const ASSETS = [
   './',
   'index.html',

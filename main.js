@@ -2,6 +2,16 @@ import { createWorker } from 'tesseract.js';
 import { pipeline, env } from '@xenova/transformers';
 import { createIcons, PlusCircle, Clipboard, RefreshCw, Copy, Share2, HelpCircle, Zap } from 'lucide';
 
+// Global error handling for mobile debugging
+window.onerror = function(msg, url, line, col, error) {
+    alert(`ERROR: ${msg}\nEn: ${url}:${line}\nDetalle: ${error ? error.stack : 'S/D'}`);
+    return false;
+};
+
+window.onunhandledrejection = function(event) {
+    alert(`PROMISE ERROR: ${event.reason}`);
+};
+
 // Skip local check to download from Hugging Face
 env.allowLocalModels = false;
 
@@ -216,9 +226,16 @@ copyBtn.addEventListener('click', () => {
 
 const processManualBtn = document.getElementById('process-manual');
 processManualBtn.addEventListener('click', () => {
-    const text = manualText.value;
-    if (text) {
-        processContent(text);
+    try {
+        const text = manualText.value;
+        alert('DEBUG: Click detectado. Texto: ' + (text ? text.substring(0, 20) + '...' : 'vacío'));
+        if (text) {
+            processContent(text);
+        } else {
+            alert('El cuadro de texto está vacío.');
+        }
+    } catch (e) {
+        alert('ERROR en el click listener: ' + e.message);
     }
 });
 
