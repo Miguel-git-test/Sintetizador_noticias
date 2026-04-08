@@ -1,13 +1,13 @@
 import { createWorker } from 'tesseract.js';
 import { pipeline, env } from '@xenova/transformers';
-import { createIcons, PlusCircle, Clipboard, RefreshCw, Copy, Share2, HelpCircle } from 'lucide';
+import { createIcons, PlusCircle, Clipboard, RefreshCw, Copy, Share2, HelpCircle, Zap } from 'lucide';
 
 // Skip local check to download from Hugging Face
 env.allowLocalModels = false;
 
 // Initialize Lucide icons
 createIcons({
-    icons: { PlusCircle, Clipboard, RefreshCw, Copy, Share2, HelpCircle, Zap: 'zap' }
+    icons: { PlusCircle, Clipboard, RefreshCw, Copy, Share2, HelpCircle, Zap }
 });
 
 // App State
@@ -79,7 +79,10 @@ function updateProgress(progress) {
 
 // Processing Logic
 async function processContent(text) {
-    if (!text || text.trim().length < 10) return;
+    if (!text || text.trim().length < 5) {
+        alert('Por favor, introduce al menos 5 caracteres (un enlace o texto corto).');
+        return;
+    }
     
     // Show loading UI immediately
     statusSection.classList.remove('hidden');

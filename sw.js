@@ -15,8 +15,22 @@ self.addEventListener('install', (event) => {
   );
 });
 
+// Clear old caches
+self.addEventListener('activate', (event) => {
+  event.waitUntil(
+    caches.keys().then((cacheNames) => {
+      return Promise.all(
+        cacheNames.filter((cacheName) => {
+          return cacheName !== CACHE_NAME;
+        }).map((cacheName) => {
+          return caches.delete(cacheName);
+        })
+      );
+    })
+  );
+});
+
 self.addEventListener('fetch', (event) => {
-  // Let AI models be handled by the library/browser optimization
   if (event.request.url.includes('huggingface.co')) {
     return;
   }
